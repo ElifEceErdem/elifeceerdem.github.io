@@ -1,113 +1,417 @@
 <!DOCTYPE html>
-<!--
-    Plain-Academic by Vasilios Mavroudis
-    Released under the Simplified BSD License/FreeBSD (2-clause) License.
-    https://github.com/mavroudisv/plain-academic
--->
-
 <html lang="en">
 <head>
-  <title>John Doe</title>
+  <title>Elif Ece Erdem | PhD Researcher</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #2d3748;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 30px 0;
+      margin-bottom: 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+    
+    .header-content {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: 0 40px;
+    }
+    
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #667eea;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    }
+    
+    .header-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3em;
+      color: #1a202c;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .header-text .title {
+      font-size: 1.3em;
+      color: #4a5568;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+    
+    .affiliation {
+      font-size: 1.1em;
+      color: #718096;
+      margin-bottom: 20px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 500;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+    
+    .social-links a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+    }
+    
+    .main-content {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+    
+    section {
+      margin-bottom: 50px;
+    }
+    
+    section:last-child {
+      margin-bottom: 0;
+    }
+    
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2em;
+      color: #1a202c;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #667eea;
+      position: relative;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100px;
+      height: 3px;
+      background: #764ba2;
+    }
+    
+    .about p {
+      font-size: 1.1em;
+      margin-bottom: 15px;
+      color: #4a5568;
+      text-align: justify;
+    }
+    
+    .interests {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    
+    .interest-tag {
+      padding: 8px 18px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 20px;
+      font-size: 0.95em;
+      font-weight: 500;
+    }
+    
+    .education-item, .experience-item {
+      margin-bottom: 30px;
+      padding: 25px;
+      background: #f7fafc;
+      border-radius: 15px;
+      border-left: 4px solid #667eea;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .education-item:hover, .experience-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .education-item h3, .experience-item h3 {
+      color: #667eea;
+      font-size: 1.4em;
+      margin-bottom: 8px;
+    }
+    
+    .institution {
+      font-size: 1.1em;
+      color: #2d3748;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .period {
+      color: #718096;
+      font-size: 0.95em;
+      margin-bottom: 12px;
+    }
+    
+    .details {
+      color: #4a5568;
+      margin-top: 10px;
+    }
+    
+    .details li {
+      margin-bottom: 8px;
+    }
+    
+    .publication {
+      margin-bottom: 25px;
+      padding: 20px;
+      background: #f7fafc;
+      border-radius: 12px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .publication:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .publication h4 {
+      color: #667eea;
+      font-size: 1.2em;
+      margin-bottom: 8px;
+    }
+    
+    .publication h4 a {
+      color: #667eea;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .publication h4 a:hover {
+      color: #764ba2;
+    }
+    
+    .authors {
+      color: #4a5568;
+      font-size: 0.95em;
+      margin-bottom: 5px;
+    }
+    
+    .venue {
+      color: #718096;
+      font-size: 0.9em;
+      font-style: italic;
+    }
+    
+    .year {
+      float: right;
+      background: #667eea;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.9em;
+      font-weight: 600;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: white;
+      margin-top: 40px;
+    }
+    
+    @media (max-width: 768px) {
+      .header-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .profile-img {
+        margin: 0 auto;
+      }
+      
+      .social-links {
+        justify-content: center;
+      }
+      
+      .header-text h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <img src="photo.gif" alt="Elif Ece Erdem" class="profile-img">
+        <div class="header-text">
+          <h1>Elif Ece Erdem</h1>
+          <div class="title">PhD Researcher</div>
+          <div class="affiliation">University of Amsterdam</div>
+          <div class="social-links">
+            <a href="#" target="_blank">Google Scholar</a>
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="mailto:your.email@uva.nl">Email</a>
+          </div>
+        </div>
+      </div>
+    </header>
 
+    <div class="main-content">
+      <section class="about">
+        <h2>About</h2>
+        <p>I am a PhD candidate at the University of Amsterdam, working at the intersection of artificial intelligence, fairness, and recommender systems. My research focuses on developing more equitable and effective recommendation algorithms through network science and graph machine learning approaches.</p>
+        
+        <div class="interests">
+          <span class="interest-tag">Fairness in AI</span>
+          <span class="interest-tag">Data Mining</span>
+          <span class="interest-tag">Recommender Systems</span>
+          <span class="interest-tag">Link Recommenders</span>
+          <span class="interest-tag">Graph Machine Learning</span>
+        </div>
+      </section>
 
-<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-	  <div class="container">
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		  <ul class="nav navbar-nav">
-				  <li><a href="index.html">Home</a></li>
-				  <li><a href="#">Projects</a></li>
-				  <li><a href="#publications">Publications</a></li> 
-				  <li><a href="#">CV</a></li> 
-		  </ul>
-		</div>
-	  </div>
-	</nav>
-  
-  <!-- Page Content -->
-    <div class="container">
-
-        <div class="row">
-
-            <!-- Entries Column -->
-            <div class="col-md-8" style="height: 100vh;">
-                
-                <!-- Main Image -->
-                <img class="img-responsive" src="photo.gif" alt=""><br>
-                
-                <div style="margin-top:3%; text-align:justify;">                
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing <a href="#">elit</a>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					
-					<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-					
-					<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                </div>
-            </div> 
-
-            <!-- Contact Info on the Sidebar -->
-            <div class="col-md-4">
-                <div style="font-family: 'Oswald', sans-serif; font-size: 32px;"><b>John Doe</b></div><br>
-                <p><b>john at doe.com</b><br>
-                <p>Random Department<br>
-                University of Randomness<br>
-                Street<br>
-                City <br>
-                Country<br>
-                </p>
-            </div>
-            
-            
-            <!-- Links on the Sidebar -->
-            <div class="col-md-4" style="margin-top:2%">
-              <dd><a href="#">Google Scholar</a></dd> 
-              <dd><a href="#">Twitter</a></dd>
-              <dd><a href="#">LinkedIn</a></dd>
-            </div>
-            
-            
-            <!-- Publications -->
-            <div class="col-md-8" style="height: 100vh;">    
-                <h2 id="publications">Publications</h2>
-                
-                <strong>Peer-reviewed</strong><br/>
-                <ul>
-                <li class="paper" words="add, your, keywords, here"><a href="#">Full title</a> Names of the authors</li>
-                </ul>
-            
-                <strong>Technical Reports</strong><br/>
-                <ul>
-                <li class="paper" words="add, your, keywords, here"><a href="#">Full title</a>. Details of the report</li>
-                </ul>
-            </div>
-
-            
+      <section class="education">
+        <h2>Education</h2>
+        
+        <div class="education-item">
+          <h3>PhD Candidate</h3>
+          <div class="institution">Universiteit van Amsterdam</div>
+          <div class="period">September 2024 - 2028</div>
         </div>
 
+        <div class="education-item">
+          <h3>Master's Degree in Computer Engineering</h3>
+          <div class="institution">Galatasaray Üniversitesi</div>
+          <div class="period">October 2022 - June 2024</div>
+          <div class="details">
+            <ul>
+              <li><strong>GPA:</strong> 3.89/4.00</li>
+              <li><strong>Thesis:</strong> Improvements in Recommender Systems: Addressing Data Sparsity and Class Imbalance with Attribute Integration and Network Science</li>
+              <li><strong>Skills:</strong> Computer Science, Statistics, Communication, Collaboration, Presentations</li>
+            </ul>
+          </div>
+        </div>
 
+        <div class="education-item">
+          <h3>Bachelor's Degree in Computer Engineering</h3>
+          <div class="institution">Galatasaray Üniversitesi</div>
+          <div class="period">2016 - 2021</div>
+          <div class="details">
+            <ul>
+              <li><strong>GPA:</strong> 3.84/4.00 (Ranked 1st)</li>
+              <li><strong>Graduation Project:</strong> Cluster Based Recommendation System</li>
+              <li><strong>Skills:</strong> Computer Science, Communication, Collaboration, Presentations</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="experience">
+        <h2>Experience</h2>
+        
+        <div class="experience-item">
+          <h3>Research and Teaching Assistant</h3>
+          <div class="institution">Galatasaray Üniversitesi</div>
+          <div class="period">December 2022 - August 2025 (2 years 9 months)</div>
+          <div class="details">
+            <ul>
+              <li>Conducted research in recommender systems and machine learning</li>
+              <li>Assisted in teaching computer science courses</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <h3>Artificial Intelligence Assistant Specialist</h3>
+          <div class="institution">KKB Kredi Kayıt Bürosu</div>
+          <div class="period">August 2021 - December 2022 (1 year 5 months)</div>
+          <div class="period">Istanbul, Turkey</div>
+          <div class="details">
+            <ul>
+              <li>Worked on graph neural networks in the "Anomaly Detection in Streaming Data" project (TUBITAK project)</li>
+              <li>Involved in front-end development using Django framework</li>
+              <li>Developed an optimization algorithm for project assignment using genetic algorithms</li>
+              <li>Developed multi-scaled anomaly detection algorithm on attributed network data for fraud detection systems</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="publications">
+        <h2>Publications</h2>
+        
+        <div class="publication">
+          <h4><a href="#">Enhancing Recommendation Systems' Performance with Network-Oriented Negative Sampling</a></h4>
+          <div class="authors">E. Erdem, G. Orman</div>
+          <div class="year">2025</div>
+        </div>
+
+        <div class="publication">
+          <h4><a href="#">Coronavirus record fraud estimation by Benford's Law analytics</a></h4>
+          <div class="authors">GK Orman, S Atakan, EE Erdem, ŞDİ Özer, TO Özçelik</div>
+          <div class="venue">Transactions on Computer Science and Applications 1 (1), 17-23</div>
+          <div class="year">2024</div>
+        </div>
+
+        <div class="publication">
+          <h4><a href="#">On the role of user segmentation in recommender systems' performances</a></h4>
+          <div class="authors">EE Erdem, GK Orman</div>
+          <div class="venue">Procedia Computer Science 225, 2333-2342</div>
+          <div class="year">2023</div>
+        </div>
+      </section>
+
+      <section class="service">
+        <h2>Academic Service</h2>
+        <div class="experience-item">
+          <h3>Reviewer</h3>
+          <div class="institution">ICWSM 2025 (International Conference on Web and Social Media)</div>
+          <div class="period">2025</div>
+        </div>
+      </section>
     </div>
-    <!-- /.container -->
-    
-    <!-- Other people may like it too! -->
-    <a style="color:#b5bec9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">Plain Academic</a> 
-    
-</body>
 
+    <footer>
+      <p>&copy; 2026 Elif Ece Erdem. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
 </html>
