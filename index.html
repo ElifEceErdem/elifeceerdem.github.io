@@ -29,8 +29,8 @@
     header {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
-      padding: 30px 0;
-      margin-bottom: 40px;
+      padding: 20px 0;
+      margin-bottom: 30px;
       border-radius: 20px;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
     }
@@ -146,7 +146,7 @@
       gap: 12px;
       margin-top: 20px;
     }
-
+    
     .interest-tag {
       padding: 8px 18px;
       background: #e6e9f0;
@@ -258,21 +258,154 @@
     }
     
     @media (max-width: 768px) {
+      .container {
+        padding: 15px 10px;
+      }
+      
+      header {
+        padding: 15px 0;
+        margin-bottom: 20px;
+      }
+      
       .header-content {
         grid-template-columns: 1fr;
         text-align: center;
+        padding: 0 15px;
+        gap: 20px;
       }
       
       .profile-img {
+        width: 120px;
+        height: 120px;
         margin: 0 auto;
-      }
-      
-      .social-links {
-        justify-content: center;
+        border-width: 3px;
       }
       
       .header-text h1 {
-        font-size: 2em;
+        font-size: 1.8em;
+        margin-bottom: 8px;
+      }
+      
+      .header-text .title {
+        font-size: 1em;
+        margin-bottom: 8px;
+      }
+      
+      .affiliation {
+        font-size: 0.95em;
+        margin-bottom: 15px;
+      }
+      
+      .social-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+        flex-wrap: wrap;
+      }
+      
+      .social-links a {
+        padding: 10px 16px;
+        font-size: 0.85em;
+        flex: 0 1 auto;
+      }
+      
+      .main-content {
+        padding: 20px 15px;
+      }
+      
+      h2 {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+      }
+      
+      h2::after {
+        width: 80px;
+      }
+      
+      .about p {
+        font-size: 0.95em;
+        text-align: left;
+        margin-bottom: 12px;
+      }
+      
+      .interests {
+        justify-content: center;
+        gap: 8px;
+      }
+      
+      .interest-tag {
+        padding: 6px 14px;
+        font-size: 0.85em;
+      }
+      
+      .education-item, .experience-item {
+        padding: 18px 15px;
+        margin-bottom: 20px;
+      }
+      
+      .education-item h3, .experience-item h3 {
+        font-size: 1.15em;
+        margin-bottom: 6px;
+      }
+      
+      .institution {
+        font-size: 0.95em;
+      }
+      
+      .period {
+        font-size: 0.85em;
+        margin-bottom: 10px;
+      }
+      
+      .details {
+        font-size: 0.9em;
+      }
+      
+      .details ul {
+        padding-left: 18px;
+      }
+      
+      .details li {
+        margin-bottom: 6px;
+      }
+      
+      .publication {
+        padding: 15px;
+        margin-bottom: 20px;
+      }
+      
+      .publication h4 {
+        font-size: 1em;
+        margin-bottom: 8px;
+        line-height: 1.4;
+      }
+      
+      .authors {
+        font-size: 0.85em;
+      }
+      
+      .venue {
+        font-size: 0.8em;
+      }
+      
+      .year {
+        float: none;
+        display: inline-block;
+        margin-top: 8px;
+        font-size: 0.85em;
+        padding: 3px 10px;
+      }
+      
+      section {
+        margin-bottom: 35px;
+      }
+      
+      footer {
+        padding: 20px;
+        margin-top: 30px;
+        font-size: 0.9em;
       }
     }
   </style>
@@ -362,7 +495,7 @@
 
         <div class="experience-item">
           <h3>Artificial Intelligence Assistant Specialist</h3>
-          <div class="institution">Credit Bureau of Turkey (KKB)</div>
+          <div class="institution">Credit Bureau of Turkey</div>
           <div class="period">August 2021 - December 2022 (1 year 5 months)</div>
           <div class="period">Istanbul, Turkey</div>
           <div class="details">
@@ -397,7 +530,6 @@
           <div class="authors">EE Erdem, GK Orman</div>
           <div class="venue">Procedia Computer Science 225, 2333-2342</div>
           <div class="year">2023</div>
-
         </div>
       </section>
 
