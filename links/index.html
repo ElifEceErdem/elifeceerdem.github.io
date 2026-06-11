@@ -39,13 +39,13 @@
   }
   @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
-  /* header with graph motif */
-  .head{position:relative;padding:8px 0 26px;text-align:center}
+  /* header with graph motif stacked above the name */
+  .head{padding:4px 0 26px;text-align:center}
   .motif{
-    position:absolute;inset:-10px 0 auto 0;height:96px;width:100%;
-    z-index:0;opacity:.6;pointer-events:none;
+    display:block;width:100%;height:auto;
+    margin:0 auto 16px;opacity:.7;
   }
-  .head-inner{position:relative;z-index:1;padding-top:30px}
+  .head-inner{padding-top:0}
   .name{
     font-family:"Space Grotesk",sans-serif;
     font-weight:700;
